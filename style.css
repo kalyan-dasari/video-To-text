@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* uploading video */
+/* Top Navigation Styles */
+.top-nav {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-size: 18px;
+}
+
+.top-nav a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+video {
+    display: none;
+    margin-top: 20px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.vidframe{
+    margin:auto;
+    margin-top: 10px;
+    width: 560px; /* 16:9 width */
+    height: 315px; /* 16:9 height */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+.video-vidframe video {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* converting speech to text part(translation part)*/
+#vidframe{
+    width:fit-content;
+    height: auto;
+    background-color: grey;
+}
+.output-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#output {
+    width: 80%;
+    min-height: 100px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.btn-container {
+    display: flex;
+    gap: 10px;
+}
+#copy-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+#clear-btn {
+    background-color: #f44336;
+    color: white;
+}
+footer p{
+    margin: 10px;
+    font-size: 12px;
+    color: #848383;
+    font-family:'Pacifico', cursive;
+    text-align: right;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload vid to Txt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--for video uploading -->
+    <div class="container">
+        <h1>Upload Your Video</h1>
+        <form id="video-upload-form">
+            <input id="video-input" type="file" accept="video/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        <div class="vidframe">
+            <video id="video-player" controls ></video>
+        </div>
+        
+<!-- for converting into Telugu text from video's audio -->
+        <div>
+            <h2>Telugu Voice Typing</h2>
+            <button id="start-btn">🎤 Start Voice Typing</button>
+            <button id="stop-btn" disabled>🛑 Stop Listening</button>
+            <div class="output-container">
+                <div id="output">Speech will appear here...</div>
+                <div class="btn-container">
+                    <button id="copy-btn">📋 Copy</button>
+                    <button id="clear-btn">🗑 Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+<footer>
+    <p>~by Kalyan Dasari</p>
+</footer>
+</body>
+</html>
