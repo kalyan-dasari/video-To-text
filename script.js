@@ -13,6 +13,36 @@ document.getElementById('video-upload-form').addEventListener('submit', function
     }
 });
 
+document.getElementById('video-upload-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const videoInput = document.getElementById('video-input');
+    const videoPlayer = document.getElementById('video-player');
+
+    if (videoInput.files && videoInput.files[0]) {
+        const fileURL = URL.createObjectURL(videoInput.files[0]);
+        videoPlayer.src = fileURL;
+        videoPlayer.style.display = 'block';
+        alert('Video uploaded successfully!');
+    } else {
+        alert('Please select a video file.');
+    }
+});
+
+document.getElementById('video-upload-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const videoInput = document.getElementById('video-input');
+    const videoPlayer = document.getElementById('video-player');
+
+    if (videoInput.files && videoInput.files[0]) {
+        const fileURL = URL.createObjectURL(videoInput.files[0]);
+        videoPlayer.src = fileURL;
+        videoPlayer.style.display = 'block';
+        alert('Video uploaded successfully!');
+    } else {
+        alert('Please select a video file.');
+    }
+});
+
 const startButton = document.getElementById("start-btn");
 const stopButton = document.getElementById("stop-btn");
 const output = document.getElementById("output");
@@ -25,20 +55,22 @@ if (window.SpeechRecognition) {
     const recognition = new SpeechRecognition();
     recognition.lang = "te-IN";
     recognition.interimResults = true;
-    recognition.continuous = true;
+    recognition.continuous = false;
 
     let finalTranscript = "";
 
     startButton.addEventListener("click", () => {
-        output.innerHTML = "Listening...";
+        if (output.innerHTML === "Speech will appear here...") {
+            finalTranscript = ""; // Reset transcript only if it was cleared previously
+        }
         recognition.start();
+        output.innerHTML = finalTranscript || "Listening...";
         startButton.disabled = true;
         stopButton.disabled = false;
     });
 
     recognition.onresult = (event) => {
         let interim = "";
-        finalTranscript = "";
 
         for (let i = 0; i < event.results.length; i++) {
             let transcript = event.results[i][0].transcript;
@@ -48,7 +80,7 @@ if (window.SpeechRecognition) {
                 interim += transcript;
             }
         }
-        output.innerHTML = finalTranscript || interim;
+        output.innerHTML = finalTranscript + `<span style="color:gray;">${interim}</span>`;
     };
 
     recognition.onend = () => {
@@ -80,4 +112,6 @@ copyButton.addEventListener("click", () => {
 
 clearButton.addEventListener("click", () => {
     output.innerHTML = "Speech will appear here...";
+    finalTranscript = ""; // Clear the stored transcript as well
 });
+
